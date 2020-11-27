@@ -2,7 +2,6 @@ package cl.globallogic.ejercicio.model;
 
 import java.util.List;
 
-import cl.globallogic.ejercicio.controller.Phone;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

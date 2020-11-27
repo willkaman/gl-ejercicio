@@ -1,4 +1,4 @@
-package cl.globallogic.ejercicio.controller;
+package cl.globallogic.ejercicio.model;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
