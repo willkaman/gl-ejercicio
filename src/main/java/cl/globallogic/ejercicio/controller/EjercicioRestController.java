@@ -1,9 +1,6 @@
 package cl.globallogic.ejercicio.controller;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,31 +24,17 @@ public class EjercicioRestController {
     
     @PostMapping("/usuario")
     public ResponseEntity<?> createUsuario(@RequestBody UsuarioRequestBody usuarioRB){
-        Optional<UsuarioEntity> usuario = ejercicioService.postUsuario(
+        return ResponseFactory.buildCreatedReponseWithBody(ejercicioService.postUsuario(
             UsuarioEntity.builder()
                 .email(usuarioRB.getEmail())
                 .name(usuarioRB.getName())
                 .password(usuarioRB.getPassword())
                 .build()
-        );
-
-        if(usuario.isPresent()){
-            return new ResponseEntity<>(usuario.get(), HttpStatus.OK);
-        }
-        else{
-            return ResponseFactory.buildConflictErrorResponse();
-        }
+        ));
     }
 
     @GetMapping("/usuario/{id}")
     public ResponseEntity<?> getUsuario(@PathVariable("id") Long id){
-        Optional<UsuarioEntity> usuario = ejercicioService.getUsuario(id);
-
-        if(usuario.isPresent()){
-            return ResponseFactory.buildOkReponseWithBody(ejercicioService.getUsuario(id).get());
-        }
-        else{
-            return ResponseFactory.buildNotfoundErrorResponse();
-        }
+        return ResponseFactory.buildOkReponseWithBody(ejercicioService.getUsuario(id));
     }
 }

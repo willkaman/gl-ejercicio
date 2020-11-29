@@ -10,8 +10,12 @@ import cl.globallogic.ejercicio.model.ResponseErrorBody;
 public class ResponseFactory {
     public static final String RECURSO_YA_EXISTE = "El recurso ya existe";
 
+    public static ResponseEntity<?> buildNotfoundErrorResponse(){
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+    
     public static ResponseEntity<?> buildConflictErrorResponse(){
-        return new ResponseEntity<>(ResponseErrorBody.builder().mensaje(RECURSO_YA_EXISTE).build(), HttpStatus.OK);
+        return new ResponseEntity<>(ResponseErrorBody.builder().mensaje(RECURSO_YA_EXISTE).build(), HttpStatus.CONFLICT);
     }
 
     public static ResponseEntity<?> buildOkReponseWithBody(Object body){
@@ -22,7 +26,4 @@ public class ResponseFactory {
         return new ResponseEntity<>(body, HttpStatus.CREATED);
     }
 
-    public static ResponseEntity<?> buildNotfoundErrorResponse(){
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-    }
 }
