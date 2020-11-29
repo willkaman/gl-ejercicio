@@ -2,12 +2,11 @@ package cl.globallogic.ejercicio.controller;
 
 import java.util.Optional;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,19 +39,19 @@ public class EjercicioRestController {
             return new ResponseEntity<>(usuario.get(), HttpStatus.OK);
         }
         else{
-            return new ResponseEntity<>(responseFactory.buildConflictErrorMessage(), HttpStatus.CONFLICT);
+            return ResponseFactory.buildConflictErrorResponse();
         }
     }
 
     @GetMapping("/usuario/{id}")
-    public ResponseEntity<?> getUsuario(@PathParam(value = "id") Long id){
+    public ResponseEntity<?> getUsuario(@PathVariable("id") Long id){
+        Optional<UsuarioEntity> usuario = ejercicioService.getUsuario(id);
 
-        if(ejercicioService.getUsuario(id).isPresent()){
-            return new ResponseEntity<>(ejercicioService.getUsuario(id).get(), HttpStatus.OK);
+        if(usuario.isPresent()){
+            return ResponseFactory.buildOkReponseWithBody(ejercicioService.getUsuario(id).get());
         }
         else{
-            return new ResponseEntity<>(ejercicioService.findAllUsuario(), HttpStatus.NOT_FOUND);
+            return ResponseFactory.buildNotfoundErrorResponse();
         }
-
     }
 }
