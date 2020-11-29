@@ -2,9 +2,10 @@ package cl.globallogic.ejercicio.model;
 
 import java.util.List;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -12,7 +13,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @EqualsAndHashCode
-@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UsuarioRequestBody {
     private String name;
     private String email;
