@@ -18,6 +18,6 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Phone {
     private String number;
-    private String citicode;
-    private String countrycode;
+    private String citycode;
+    private String contrycode;
 }

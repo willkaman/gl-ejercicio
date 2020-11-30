@@ -1,11 +1,14 @@
 package cl.globallogic.ejercicio.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,4 +38,6 @@ public class UsuarioEntity {
     private LocalDateTime lastLogin;
     private String token;
     private Boolean isActive;
+    @OneToMany(cascade = {CascadeType.ALL})
+    private List<PhoneEntity> phones;
 }

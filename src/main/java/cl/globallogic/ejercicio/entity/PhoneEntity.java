@@ -30,5 +30,5 @@ public class PhoneEntity {
     private Short citiCode;
     private Short countryCode;
     @ManyToOne
-     private UsuarioEntity usuario;
+    private UsuarioEntity usuario;
 }
