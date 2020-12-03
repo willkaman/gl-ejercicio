@@ -9,6 +9,7 @@ import cl.globallogic.ejercicio.model.dto.ResponseErrorBody;
 @Component
 public class ResponseFactory {
     public static final String RECURSO_YA_EXISTE = "El recurso ya existe";
+    public static final String AUTH_ERROR = "Error de autenticación";
 
     public static ResponseEntity<?> buildNotfoundErrorResponse(){
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
@@ -24,6 +25,10 @@ public class ResponseFactory {
 
     public static ResponseEntity<?> buildCreatedReponseWithBody(Object body){
         return new ResponseEntity<>(body, HttpStatus.CREATED);
+    }
+
+    public static ResponseEntity<?> buildUnauthErrorResponse(){
+        return new ResponseEntity<>(ResponseErrorBody.builder().mensaje(AUTH_ERROR).build(), HttpStatus.CONFLICT);
     }
 
 }

@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import cl.globallogic.ejercicio.dao.EjercicioDAO;
@@ -16,6 +17,9 @@ public class EjercicioServiceImpl implements EjercicioService{
     
     @Autowired
     EjercicioDAO ejercicioDAO;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
     
     public List<UsuarioEntity> findAllUsuario(){
         return ejercicioDAO.findAllusuario();
@@ -33,6 +37,7 @@ public class EjercicioServiceImpl implements EjercicioService{
 
     public UsuarioEntity postUsuario(UsuarioEntity usuario){
         LocalDateTime now =LocalDateTime.now();
+        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         usuario.setCreated(now);
         usuario.setModified(now);
         usuario.setLastLogin(now);

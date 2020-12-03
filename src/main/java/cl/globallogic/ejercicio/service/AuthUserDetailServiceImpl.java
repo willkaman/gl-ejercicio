@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import cl.globallogic.ejercicio.model.dto.LoginRequestBody;
@@ -21,6 +22,9 @@ public class AuthUserDetailServiceImpl implements UserDetailsService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     @Override
     public UserDetails loadUserByUsername(String username){
         UsuarioEntity usuario = this.usuarioRepository.findByEmail(username)
@@ -33,7 +37,8 @@ public class AuthUserDetailServiceImpl implements UserDetailsService {
     }
 
     public UserDetails loadUserByCredentials(LoginRequestBody login){
-        UsuarioEntity usuario = usuarioRepository.findByEmailAndPassword(login.getUsername(), login.getPassword())
+        
+        UsuarioEntity usuario = usuarioRepository.findByEmailAndPassword(login.getUsername(), passwordEncoder.encode(login.getPassword()))
                                     .orElseThrow(()-> new UsernameNotFoundException("Usuario inválido"));
 
         return new User(

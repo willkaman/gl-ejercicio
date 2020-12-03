@@ -8,6 +8,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import cl.globallogic.ejercicio.exception.ConflictException;
 import cl.globallogic.ejercicio.exception.NoDataFoundException;
+import cl.globallogic.ejercicio.exception.UnauthException;
 import cl.globallogic.ejercicio.factory.ResponseFactory;
 
 @ControllerAdvice
@@ -25,6 +26,11 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
         ConflictException ex, WebRequest request) {
 
         return ResponseFactory.buildConflictErrorResponse();
+    }
+
+    @ExceptionHandler(UnauthException.class)
+    public ResponseEntity<?> handleUnauthException(UnauthException ex, WebRequest request){
+        return ResponseFactory.buildUnauthErrorResponse();
     }
 
 }
