@@ -2,7 +2,7 @@ package cl.globallogic.ejercicio.service;
 
 import java.util.List;
 
-import cl.globallogic.ejercicio.entity.UsuarioEntity;
+import cl.globallogic.ejercicio.model.entity.UsuarioEntity;
 
 public interface EjercicioService {
     public List<UsuarioEntity> findAllUsuario();

@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import cl.globallogic.ejercicio.entity.PhoneEntity;
-import cl.globallogic.ejercicio.entity.UsuarioEntity;
 import cl.globallogic.ejercicio.factory.ResponseFactory;
-import cl.globallogic.ejercicio.model.UsuarioRequestBody;
+import cl.globallogic.ejercicio.model.dto.UsuarioRequestBody;
+import cl.globallogic.ejercicio.model.entity.PhoneEntity;
+import cl.globallogic.ejercicio.model.entity.UsuarioEntity;
 import cl.globallogic.ejercicio.service.EjercicioService;
 
 @RestController

@@ -1,4 +1,4 @@
-package cl.globallogic.ejercicio.model;
+package cl.globallogic.ejercicio.model.dto;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;

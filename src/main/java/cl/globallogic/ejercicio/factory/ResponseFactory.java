@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import cl.globallogic.ejercicio.model.ResponseErrorBody;
+import cl.globallogic.ejercicio.model.dto.ResponseErrorBody;
 
 @Component
 public class ResponseFactory {

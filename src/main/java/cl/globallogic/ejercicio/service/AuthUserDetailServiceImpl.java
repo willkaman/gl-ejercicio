@@ -3,14 +3,14 @@ package cl.globallogic.ejercicio.service;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.security.core.userdetails.User;
 
-import cl.globallogic.ejercicio.entity.UsuarioEntity;
 import cl.globallogic.ejercicio.model.dto.LoginRequestBody;
+import cl.globallogic.ejercicio.model.entity.UsuarioEntity;
 import cl.globallogic.ejercicio.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 

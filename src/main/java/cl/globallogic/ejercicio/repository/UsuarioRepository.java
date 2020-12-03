@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
-import cl.globallogic.ejercicio.entity.UsuarioEntity;
+import cl.globallogic.ejercicio.model.entity.UsuarioEntity;
 
 public interface UsuarioRepository extends CrudRepository<UsuarioEntity, Long> {
 

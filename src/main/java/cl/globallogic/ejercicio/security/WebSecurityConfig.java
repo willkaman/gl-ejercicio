@@ -1,5 +1,6 @@
 package cl.globallogic.ejercicio.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,6 +11,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    @Autowired
+    JWTAuthorizationFilter filter;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -28,6 +31,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // .anyRequest().authenticated();
         .and().csrf().disable();
 
-        http.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterAfter(filter, UsernamePasswordAuthenticationFilter.class);
     }
 }

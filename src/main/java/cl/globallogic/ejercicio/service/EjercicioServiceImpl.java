@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cl.globallogic.ejercicio.dao.EjercicioDAO;
-import cl.globallogic.ejercicio.entity.UsuarioEntity;
 import cl.globallogic.ejercicio.exception.ConflictException;
 import cl.globallogic.ejercicio.exception.NoDataFoundException;
+import cl.globallogic.ejercicio.model.entity.UsuarioEntity;
 
 @Service
 public class EjercicioServiceImpl implements EjercicioService{

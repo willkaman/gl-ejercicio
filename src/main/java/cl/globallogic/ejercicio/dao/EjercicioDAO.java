@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.stereotype.Repository;
 
-import cl.globallogic.ejercicio.entity.UsuarioEntity;
+import cl.globallogic.ejercicio.model.entity.UsuarioEntity;
 import cl.globallogic.ejercicio.repository.UsuarioRepository;
 
 

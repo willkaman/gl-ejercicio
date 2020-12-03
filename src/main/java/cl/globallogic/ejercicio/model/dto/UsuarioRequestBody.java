@@ -1,4 +1,4 @@
-package cl.globallogic.ejercicio.model;
+package cl.globallogic.ejercicio.model.dto;
 
 import java.util.List;
 

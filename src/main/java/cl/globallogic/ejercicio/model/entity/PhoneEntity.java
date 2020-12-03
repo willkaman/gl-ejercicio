@@ -1,4 +1,4 @@
-package cl.globallogic.ejercicio.entity;
+package cl.globallogic.ejercicio.model.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

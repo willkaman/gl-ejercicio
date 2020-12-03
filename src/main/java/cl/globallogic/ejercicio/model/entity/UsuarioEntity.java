@@ -1,4 +1,4 @@
-package cl.globallogic.ejercicio.entity;
+package cl.globallogic.ejercicio.model.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;
