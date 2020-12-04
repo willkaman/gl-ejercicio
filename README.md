@@ -4,7 +4,9 @@
 
 ### Ejecución
 
-`gradle bootRun`
+Ejecución con graddle wrapper
+
+`gradlew bootRun`
 
 ### Endpoints
 #### Crear usuario - No Authorization
