@@ -15,11 +15,16 @@ import cl.globallogic.ejercicio.model.entity.UsuarioEntity;
 @Service
 public class EjercicioServiceImpl implements EjercicioService{
     
-    @Autowired
-    EjercicioDAO ejercicioDAO;
+    private EjercicioDAO ejercicioDAO;
+
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
-    PasswordEncoder passwordEncoder;
+    public EjercicioServiceImpl(EjercicioDAO ejercicioDAO, PasswordEncoder passwordEncoder){
+        this.ejercicioDAO = ejercicioDAO;
+        this.passwordEncoder = passwordEncoder;
+    }
+
     
     public List<UsuarioEntity> findAllUsuario(){
         return ejercicioDAO.findAllusuario();

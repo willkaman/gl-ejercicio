@@ -5,6 +5,7 @@ import java.util.List;
 import cl.globallogic.ejercicio.model.entity.UsuarioEntity;
 
 public interface EjercicioService {
+
     public List<UsuarioEntity> findAllUsuario();
 
     public UsuarioEntity getUsuario(Long id);

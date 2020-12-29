@@ -15,8 +15,13 @@ import cl.globallogic.ejercicio.repository.UsuarioRepository;
 
 @Repository
 public class EjercicioDAO {
+    
+    private UsuarioRepository usuarioRepository;
+
     @Autowired
-    UsuarioRepository usuarioRepository;
+    public EjercicioDAO(UsuarioRepository usuarioRepository){
+        this.usuarioRepository = usuarioRepository;
+    }
 
     public List<UsuarioEntity> findAllusuario(){
     List<UsuarioEntity> result = new ArrayList<UsuarioEntity>();
